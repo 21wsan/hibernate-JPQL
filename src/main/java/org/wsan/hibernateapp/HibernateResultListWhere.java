@@ -5,9 +5,10 @@ import jakarta.persistence.Query;
 import org.wsan.hibernateapp.entity.Cliente;
 import org.wsan.hibernateapp.util.JpaUtil;
 
+import java.util.List;
 import java.util.Scanner;
 
-public class HibernateListarWhere {
+public class HibernateResultListWhere {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -16,8 +17,9 @@ public class HibernateListarWhere {
         System.out.println("Ingrese una forma de pago: ");
         String pago = sc.next();
         query.setParameter(1,pago);
-        Cliente c = (Cliente) query.getSingleResult();
-        System.out.print(c);
+        //query.setMaxResults(1);
+        List<Cliente> clientes = query.getResultList();
+        System.out.print(clientes);
         em.close();
     }
 }
