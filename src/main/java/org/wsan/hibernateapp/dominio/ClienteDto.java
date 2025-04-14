@@ -1,0 +1,39 @@
+package org.wsan.hibernateapp.dominio;
+
+public class ClienteDto {
+
+    //atributos
+    private String nombre;
+    private String apellido;
+
+    //constructor con parametros
+    public ClienteDto(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
+    //metodos get y set
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                '}';
+    }
+}

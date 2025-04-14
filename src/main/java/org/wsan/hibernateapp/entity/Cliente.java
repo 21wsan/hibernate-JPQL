@@ -19,6 +19,10 @@ public class Cliente {
     //constructor vacío
     public Cliente(){}
 
+    public Cliente(String nombre, String apellido){
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
     //contructor con parametros
     public Cliente(Long id, String nombre, String apellido, String formaPago){
         this.id = id;

@@ -1,9 +1,10 @@
-package org.wsan.hibernateapp.util;
+package org.wsan.hibernateapp;
 
 import jakarta.persistence.EntityManager;
 import org.wsan.hibernateapp.entity.Cliente;
 import org.wsan.hibernateapp.services.ClienteService;
 import org.wsan.hibernateapp.services.ClienteServiceImp;
+import org.wsan.hibernateapp.util.JpaUtil;
 
 import java.util.List;
 import java.util.Optional;
