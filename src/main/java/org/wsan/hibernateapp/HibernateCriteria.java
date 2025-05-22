@@ -34,6 +34,21 @@ public class HibernateCriteria {
         clientes = em.createQuery(query).setParameter("nombre", "Andres").getResultList();
         clientes.forEach(System.out::println);
 
+        System.out.println("========== usando where like para buscar clientes por nombre ==========");
+        query = criteria.createQuery(Cliente.class);
+        from = query.from(Cliente.class);
+        ParameterExpression<String> nombreParamLike = criteria.parameter(String.class, "nombreParam");
+        query.select(from).where(criteria.like(criteria.upper(from.get("nombre")), criteria.upper(nombreParamLike)));
+        clientes = em.createQuery(query).setParameter("nombreParam", "%lu%")
+                .getResultList();
+        clientes.forEach(System.out::println);
+
+        System.out.println("========== usando where between para rangos ==========");
+        query = criteria.createQuery(Cliente.class);
+        from = query.from(Cliente.class);
+        query.select(from).where(criteria.between(from.get("id"), 2L, 6L));
+        clientes.forEach(System.out::println);
+
         em.close();
     }
 }
